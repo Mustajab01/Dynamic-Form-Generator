@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Form Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Dynamic Form Generator</h1>
+        <div id="form-definition">
+            <h2>Define Form Fields</h2>
+            <table id="field-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Mandatory</th>
+                        <th>Options</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="field-tbody">
+                    <tr>
+                        <td><input type="text" name="field-name" placeholder="Field Name"></td>
+                        <td>
+                            <select name="field-type">
+                                <option value="String">String</option>
+                                <option value="Number">Number</option>
+                                <option value="Dropdown">Dropdown</option>
+                                <option value="Boolean">True/False</option>
+                                <option value="Date">Date</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select name="mandatory">
+                                <option value="true">True</option>
+                                <option value="false">False</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="options" placeholder="Comma separated options"></td>
+                        <td><button onclick="deleteRow(this)">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button id="add-row" onclick="addRow()">Add Row</button>
+            <button id="save-json" onclick="saveJSON()">Save JSON</button>
+            <button id="load-json" onclick="loadJSON()">Load JSON</button>
+            <button id="generate-form" onclick="generateForm()">Generate Form</button>
+        </div>
+        <div id="generated-form-container">
+            <h2>Generated Form</h2>
+            <form id="generated-form"></form>
+            <button id="save-submission" onclick="saveSubmission()">Save</button>
+        </div>
+        <div id="submissions-container">
+            <h2>Last 10 Submissions</h2>
+            <div id="submissions-list"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
